@@ -16,7 +16,7 @@ Siamo partiti da un **modello IFC dimostrativo dell’Edificio F**, integrato co
 
 Per capire quanto contasse la **posizione**, abbiamo scelto due zone del tetto: **A**, più lontana dagli ostacoli, e **B**, più vicina. In entrambe abbiamo collocato **12 moduli da 450 Wp**, rivolti a sud e inclinati di 15°. Mantenere invariati pannelli, potenza e orientamento ci ha permesso di confrontare le due posizioni a parità di condizioni.
 
-![Mappa dell’esposizione solare sulla copertura dell’Edificio F](geolibre/Fotovoltaico_Edificio_F_GeoLibre/04_Mappa_esposizione.png)
+![Mappa dell’esposizione solare sulla copertura dell’Edificio F](roof-to-solar/geolibre/Fotovoltaico_Edificio_F_GeoLibre/04_Mappa_esposizione.png)
 
 *Figura 1 · La mappa permette di individuare dove gli ostacoli riducono il tempo di esposizione al sole. Due punti sullo stesso tetto possono quindi offrire condizioni di posa diverse.*
 
