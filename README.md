@@ -1,80 +1,108 @@
-# Roof to Solar
+# ☀️ Roof to Solar
 
-**Dove conviene installare i pannelli fotovoltaici, quanti ne entrano sul tetto e quanta energia potrebbero produrre?**
+**Dal modello IFC dell’Edificio F a una web app che aiuta a scegliere dove installare i pannelli fotovoltaici.**
 
-Roof to Solar nasce da uno [studio in GeoLibre sull’Edificio F](geolibre/) del campus di Fisciano dell’Università degli Studi di Salerno. Partendo da un modello IFC semplificato, abbiamo confrontato due zone dello stesso tetto per capire quanto la posizione dei pannelli e le ombre degli ostacoli incidano sull’esposizione solare. Abbiamo poi usato PVGIS per confrontare la produzione attesa di diverse configurazioni.
+Sul tetto dell’Edificio F dell’Università di Salerno, due gruppi identici di pannelli ricevono quantità diverse di luce. La ragione si vede sulla mappa: uno dei due gruppi si trova più vicino agli ostacoli. *Roof to Solar* parte da questa osservazione per rispondere a tre domande: **dove posizionare i pannelli, quanti installarne e come orientarli?**
 
-Da questo studio è nata una [web app](sito/) che permette anche a chi non usa software GIS di esplorare il proprio tetto, visualizzare una disposizione dei pannelli e confrontare più soluzioni.
+🟢 **GeoLibre** · analisi del tetto e dell’esposizione  
+🔵 **PVGIS** · stima della produzione fotovoltaica  
+🟠 **Web app** · progettazione e confronto degli scenari
 
-[Il caso studio](#il-caso-studio-edificio-f) · [I risultati](#risultati) · [La web app](#progetta-sul-tuo-tetto) · [Come avviare il progetto](#avvio) · [I materiali](#contenuto-della-repository)
+---
 
-![Mappa dell’esposizione solare sul tetto dell’Edificio F](geolibre/Fotovoltaico_Edificio_F_GeoLibre/04_Mappa_esposizione.png)
+## 🟢 Il caso studio · Edificio F, campus di Fisciano
 
-## Il caso studio: Edificio F
+Siamo partiti da un **modello IFC dimostrativo dell’Edificio F**, integrato con la sagoma della copertura e un modello digitale della superficie. Sul tetto sono stati rappresentati due volumi tecnici ipotetici per studiare l’effetto delle loro ombre.
 
-L’obiettivo era rispondere a due domande distinte: **su quale zona del tetto conviene installare i pannelli? Una volta scelta la zona, come conviene orientarli?** Per distinguere l’effetto della posizione da quello dell’orientamento, abbiamo modificato una sola condizione alla volta.
+Per capire quanto contasse la **posizione**, abbiamo scelto due zone del tetto: **A**, più lontana dagli ostacoli, e **B**, più vicina. In entrambe abbiamo collocato **12 moduli da 450 Wp**, rivolti a sud e inclinati di 15°. Mantenere invariati pannelli, potenza e orientamento ci ha permesso di confrontare le due posizioni a parità di condizioni.
 
-1. **Ricostruzione del tetto.** Il modello IFC dimostrativo, il modello digitale della superficie (DSM) e la sagoma della copertura descrivono l’edificio. Sul tetto sono stati rappresentati due volumi tecnici ipotetici per studiare l’effetto delle loro ombre.
-2. **Confronto tra le zone A e B.** Abbiamo collocato in ciascuna zona 12 moduli identici da 450 Wp, orientati a sud e inclinati di 15°. Cambiava soltanto la posizione: la zona A era più lontana dagli ostacoli, la zona B più vicina.
-3. **Analisi dell’esposizione.** Le mappe delle ombre, i risultati di *Time in Daylight* e le statistiche zonali di GeoLibre hanno permesso di leggere le differenze sul tetto. Una prima simulazione ha campionato quattro giornate dell’anno a intervalli di dieci minuti; un’analisi separata ha confrontato le due posizioni su un anno meteorologico tipico.
-4. **Confronto tra orientamenti.** Scelta la zona A, abbiamo mantenuto la stessa potenza installata e confrontato in PVGIS due configurazioni: 12 moduli rivolti a sud oppure 6 a est e 6 a ovest.
+![Mappa dell’esposizione solare sulla copertura dell’Edificio F](geolibre/Fotovoltaico_Edificio_F_GeoLibre/04_Mappa_esposizione.png)
 
-## Risultati
+*Figura 1 · La mappa permette di individuare dove gli ostacoli riducono il tempo di esposizione al sole. Due punti sullo stesso tetto possono quindi offrire condizioni di posa diverse.*
 
-| Domanda | Confronto | Risultato |
-|---|---|---|
-| Quanto conta la posizione in inverno? | Ore medie di sole diretto per modulo il 21 dicembre | **9,00 ore in A** e **2,78 ore in B**. A parità di pannelli e orientamento, la differenza è di oltre 6 ore. |
-| Quanto cambia la produzione di un singolo modulo? | Stima PVGIS per un modulo rappresentativo da 450 Wp in ciascuna zona, con il relativo profilo di orizzonte | **603,78 kWh/anno in A** e **535,98 in B**. La stima per B è inferiore dell’**11,2% rispetto ad A**. |
-| Il vantaggio si mantiene considerando tutti i pannelli? | Simulazione separata dei 12 moduli, con dati meteo orari PVGIS e ombre modellate | **7.699,11 kWh/anno in A** e **6.467,81 in B**. Nelle condizioni simulate, B produce circa il **16% in meno rispetto ad A**. |
-| Nella zona A conviene orientare i pannelli a sud o a est–ovest? | Due impianti da 5,4 kWp, entrambi inclinati di 15° | **7.245,66 kWh/anno a sud** e **6.456,10 a est–ovest**. Il sud offre circa **790 kWh/anno in più**, pari al **12,2% rispetto a est–ovest**. |
+## 🟡 Primo risultato · Dove conviene installare i pannelli?
 
-**Per l’Edificio F, la zona A è risultata preferibile alla B. Tra i due orientamenti provati in A, il sud ha fornito la maggiore produzione annua stimata.** I valori del singolo modulo e dell’intero impianto derivano da metodi diversi: il risultato dei 12 moduli non è stato ottenuto moltiplicando per 12 la stima del modulo rappresentativo.
+Abbiamo confrontato il tempo al sole, le ombre e la produzione prevista nelle due zone. GeoLibre ha permesso di esplorare le differenze sulla copertura; i profili di orizzonte usati in PVGIS e una simulazione annuale separata hanno permesso di valutarne l’effetto sulla produzione.
 
-[Consulta i metodi e le ipotesi](documentazione/Appunti_report_fotovoltaico_Edificio_F.md) · [Visualizza il confronto mensile A/B](geolibre/Edificio_F_Confronto_Ombre_AB_Annuale/Confronto_mensile_AB.png)
+| Indicatore | Zona A | Zona B |
+|---|---:|---:|
+| Sole diretto medio per modulo il 21 dicembre | **9,00 ore** | **2,78 ore** |
+| Produzione annua stimata con PVGIS per un modulo rappresentativo da 450 Wp | **603,78 kWh** | **535,98 kWh** |
+| Produzione annua dei 12 moduli in una simulazione separata | **7.699,11 kWh** | **6.467,81 kWh** |
 
-## Progetta sul tuo tetto
+**La zona A è risultata più favorevole.** Il 21 dicembre, ogni modulo ha ricevuto in media **6,22 ore di sole diretto in più**. Per il singolo modulo rappresentativo, PVGIS ha stimato in B una produzione inferiore dell’**11,2% rispetto ad A**. La simulazione dei 12 moduli, che considera le ombre sull’intera disposizione, ha stimato una riduzione di circa il **16%**.
 
-La prima sezione dell’applicazione permette di esplorare lo studio sull’Edificio F. La seconda, **«Progetta sul tuo tetto»**, permette di scegliere un altro edificio. Per iniziare non serve un file IFC: si può selezionare una sagoma disponibile sulla mappa, tracciare il perimetro del tetto oppure importare un poligono GeoJSON.
+![Confronto mensile della produzione simulata nelle zone A e B](geolibre/Edificio_F_Confronto_Ombre_AB_Annuale/Confronto_mensile_AB.png)
 
-| Funzione | Cosa permette di fare |
+*Figura 2 · Il confronto mensile mostra ciò che il totale annuo nasconde: a dicembre, per esempio, la simulazione dei 12 moduli stima circa 420 kWh in A e 191 kWh in B.*
+
+## 🔵 Secondo risultato · Sud oppure Est–Ovest?
+
+Una volta scelta la **zona A**, abbiamo cambiato la domanda: a parità di posizione e di potenza installata, quale orientamento produce più energia nell’arco dell’anno?
+
+| Configurazione | Disposizione | Potenza | Produzione annua stimata con PVGIS |
+|---|---|---:|---:|
+| **Sud** | 12 moduli rivolti a sud | 5,4 kWp | **7.245,66 kWh** |
+| **Est–Ovest** | 6 moduli rivolti a est e 6 a ovest | 5,4 kWp | **6.456,10 kWh** |
+
+**Nelle condizioni studiate, il sud offre circa 790 kWh in più all’anno**, pari al **12,2% in più rispetto a Est–Ovest**. Il risultato riguarda l’energia annua delle due configurazioni analizzate a Fisciano; per un altro edificio il confronto va ripetuto con i dati del sito.
+
+![Profilo invernale delle configurazioni Sud ed Est–Ovest](geolibre/Edificio_F_Confronto_Sud_Est_Ovest/Profilo_invernale.png)
+
+*Figura 3 · Il profilo invernale illustra come cambia la distribuzione della produzione durante la giornata. Il grafico proviene da una simulazione giornaliera separata; i totali annui della tabella provengono da PVGIS.*
+
+---
+
+## 🟠 Dal caso studio al tuo tetto
+
+La web app contiene due ambienti. **Edificio F** presenta il caso studio e permette di esplorare le configurazioni analizzate. **Progetta sul tuo tetto** porta lo stesso tipo di ragionamento su un edificio scelto dall’utente. Per iniziare basta selezionare una sagoma sulla mappa o tracciare il perimetro della copertura. Chi dispone già di un poligono può importarlo in formato GeoJSON.
+
+| Voce del menu | Cosa può fare l’utente |
 |---|---|
-| **Disegna zona** | Usare l’intera copertura oppure delimitare soltanto la parte del tetto che si vuole destinare ai pannelli. |
-| **Esposizione** | Indicare gli ostacoli conosciuti, come un camino, e osservare quali parti del tetto ricevono più sole nel periodo analizzato. |
-| **Consigliami un impianto** | Lasciare che l’app confronti 16 disposizioni e proponga i moduli che raggiungono almeno il **95% di tempo medio al sole**. In alternativa, scegliere il numero desiderato e vedere dove collocarlo. |
-| **Previsione** | Consultare il numero di pannelli, la potenza installata in **kWp** e, quando sono disponibili i dati PVGIS, la produzione elettrica annua stimata in **kWh**. |
-| **Confronto A/B** | Confrontare due soluzioni, osservare l’andamento mensile quando disponibile e stampare il riepilogo o salvarlo in PDF. |
+| **Disegna zona** | Delimitare una porzione del tetto da destinare ai pannelli, oppure utilizzare l’intera copertura. |
+| **Esposizione** | Posizionare gli ostacoli conosciuti, come un camino, e visualizzare quali parti del tetto ricevono più sole nel periodo analizzato. |
+| **Consigliami un impianto** | Chiedere una proposta automatica oppure indicare il numero di pannelli desiderato e vederne la posizione sulla planimetria. |
+| **Previsione** | Consultare il numero di moduli, la potenza installata in kWp e la produzione annua di riferimento quando sono disponibili i dati PVGIS. |
+| **Confronto A/B** | Affiancare due scenari, confrontarne i risultati e stampare il riepilogo o salvarlo in PDF. |
 
-**Un esempio pratico:** l’utente vuole installare **7 pannelli** e sa che sul tetto c’è un camino. Conferma la copertura, posiziona l’ostacolo e calcola l’esposizione. Selezionando **«Scelgo io il numero»**, può vedere sulla planimetria dove l’app collocherebbe i sette moduli. Se nelle disposizioni provate ne entrano soltanto cinque, il sito mostra i cinque posti trovati.
+### Come vengono scelti i pannelli?
 
-### Vantaggi per l’utente finale
+Con **«Consigliami tu»** l’app confronta **16 possibili disposizioni**. Tra quelle provate, privilegia la disposizione che ospita più moduli con almeno il **95% di tempo medio al sole** nel periodo della mappa. I pannelli consigliati appaiono in **verde**; i contorni **grigi** indicano ulteriori posti disponibili nella stessa griglia.
 
-- **Capire una proposta guardando il tetto.** La mappa mostra la posizione dei singoli moduli: diventa più facile capire perché due zone con la stessa superficie possano offrire risultati diversi.
-- **Confrontare alternative prima di scegliere.** L’utente può provare un numero diverso di pannelli, restringere la zona di posa o confrontare due orientamenti sullo stesso edificio.
-- **Partire dalle informazioni già disponibili.** Per una prima esplorazione bastano il perimetro del tetto e gli ostacoli conosciuti. Il riepilogo aiuta poi a discutere con un tecnico ipotesi concrete, come la posizione di un camino o lo spazio effettivamente utilizzabile.
+Con **«Scelgo io il numero»**, la decisione parte invece dall’utente. Per esempio: *«Vorrei installare 7 pannelli: dove li metto?»*. L’app cerca una disposizione che accolga i sette moduli nelle posizioni più esposte tra quelle provate. Se riesce a collocarne soltanto cinque, mostra i cinque posti trovati.
 
-> **Come leggere il 95%:** indica la quota di tempo diurno in cui la superficie del modulo riceve sole diretto nel periodo rappresentato dalla mappa. Non equivale al 95% di rendimento del pannello. Per un nuovo tetto, la stima annua di riferimento di PVGIS non corregge automaticamente la produzione per le ombre locali disegnate nell’app. I risultati servono a confrontare scenari preliminari; non sono misure di un impianto in esercizio né un progetto esecutivo.
+> [!NOTE]
+> **Tempo al sole ed energia prodotta sono due misure diverse.** Il 95% indica la quota di tempo diurno in cui la superficie del modulo riceve sole diretto nel periodo analizzato. Non significa che il pannello abbia un rendimento del 95%. Nel laboratorio, la stima annua di riferimento di PVGIS non viene corretta automaticamente per le ombre locali disegnate dall’utente.
 
-## Avvio
+## 🟣 Perché è utile per l’utente finale
 
-Per utilizzare tutte le funzioni è necessario **Python 3**. Scaricare o clonare la repository, quindi avviare l’applicazione in uno dei seguenti modi:
+- **Capire dove conviene installare.** La proposta è visibile sul tetto: l’utente può riconoscere un ostacolo e osservare perché il sito preferisce alcune posizioni ad altre.
+- **Distinguere lo spazio disponibile da quello ben esposto.** Un pannello può entrare fisicamente in una zona che rimane in ombra per una parte rilevante della giornata. La mappa rende visibile questa differenza.
+- **Confrontare alternative prima di decidere.** L’utente può provare un numero diverso di moduli, limitare l’area di posa o confrontare due configurazioni osservandone gli effetti.
+- **Partire da informazioni semplici.** Non serve possedere un modello IFC del proprio edificio. Il contorno del tetto e gli ostacoli conosciuti sono sufficienti per una prima esplorazione da approfondire con un tecnico.
 
-- **Windows:** aprire [`sito/Avvia_Laboratorio.cmd`](sito/Avvia_Laboratorio.cmd) e lasciare aperta la finestra del prompt durante l’utilizzo.
-- **Da terminale:** dalla cartella principale della repository, eseguire `python3 sito/server_atlante.py`.
+## 📦 Contenuto della repository
 
-Il server apre l’app nel browser e mostra l’indirizzo locale. Le mappe online e le richieste a PVGIS richiedono una connessione Internet. GitHub Pages può ospitare le pagine statiche; per usare il laboratorio completo deve essere in esecuzione anche il server Python.
-
-**Prima prova consigliata:** aprire **Progetta sul tuo tetto → Prova un esempio offline → Conferma questa copertura**. Dal menu scegliere **Esposizione → Calcola esposizione**, quindi **Consigliami un impianto → Mostra proposta**.
-
-## Contenuto della repository
-
-| Percorso | Contenuto |
+| Cartella | Materiali disponibili |
 |---|---|
-| [`sito/`](sito/) | Codice della web app, interfaccia cartografica, dati del caso studio, logica di disposizione dei pannelli e server locale. |
-| [`geolibre/`](geolibre/) | Modello IFC dimostrativo, modello 3D dell’edificio, dati del terreno, raster di esposizione di dicembre e poligoni delle zone A e B. |
-| [Kit del potenziale solare](geolibre/Edificio_F_Kit_Potenziale_Solare/) | DSM con risoluzione di 1 m, maschera della copertura e aree candidate alla posa. |
-| [Esposizione e disposizione dei pannelli](geolibre/Fotovoltaico_Edificio_F_GeoLibre/) | Ostacoli, griglia di esposizione, mappa del tetto e modelli 3D delle due configurazioni. |
-| [Confronto annuale delle ombre](geolibre/Edificio_F_Confronto_Ombre_AB_Annuale/) | Dati meteorologici orari, script di calcolo, risultati numerici e grafico mensile delle zone A e B. |
-| [Confronto Sud / Est–Ovest](geolibre/Edificio_F_Confronto_Sud_Est_Ovest/) e [orizzonti PVGIS](geolibre/Orizzonti_PVGIS_Edificio_F_AB/) | Configurazioni dei pannelli, profilo invernale e orizzonti personalizzati usati per confrontare i moduli rappresentativi. |
-| [Campus UNISA in 3D](geolibre/Campus_UNISA_3D_kit/) | Terreno, modelli dei singoli piani e vista esplosa dell’Edificio F. |
-| [Drenaggio](geolibre/Edificio_F_Analisi_Drenaggio_GeoLibre/), [effetto barriera dell’edificio](geolibre/Edificio_F_Drenaggio_Confronto_Barriera_IFC/) e [tetto verde](geolibre/Edificio_F_Tetto_Verde_GeoLibre/) | Studi complementari sui percorsi di deflusso, sull’effetto della sagoma dell’edificio e sulla ritenzione delle precipitazioni. |
-| [`documentazione/`](documentazione/) | Presentazione, relazioni e appunti che descrivono procedimento, ipotesi e risultati. |
+| `sito/` | Web app, mappe interattive, dati del caso studio, proposta di posa, confronto degli scenari e server locale. |
+| `geolibre/` | Modello IFC dimostrativo, modelli 3D, dati del terreno, raster di esposizione e poligoni delle zone A e B. |
+| `geolibre/Edificio_F_Kit_Potenziale_Solare/` | Modello digitale della superficie a 1 m, maschera della copertura e area candidata alla posa. |
+| `geolibre/Fotovoltaico_Edificio_F_GeoLibre/` | Ostacoli, griglia di esposizione, mappa del tetto e modelli delle due disposizioni dei pannelli. |
+| `geolibre/Edificio_F_Confronto_Ombre_AB_Annuale/` | Dati meteorologici orari, script di calcolo, risultati numerici e grafico mensile delle zone A e B. |
+| `geolibre/Edificio_F_Confronto_Sud_Est_Ovest/` e `geolibre/Orizzonti_PVGIS_Edificio_F_AB/` | Configurazioni di orientamento, profilo invernale e orizzonti personalizzati per i moduli rappresentativi. |
+| `geolibre/Campus_UNISA_3D_kit/` | Terreno del campus, modelli dei singoli piani e vista esplosa dell’Edificio F. |
+| Altre cartelle in `geolibre/` | Analisi complementari sul drenaggio, sui percorsi di deflusso intorno all’edificio e sulla ritenzione delle precipitazioni negli scenari di tetto verde. |
+| `documentazione/` | Presentazione, relazioni tecniche e appunti con il procedimento, le ipotesi e i risultati. |
+
+## 🚀 Come avviare l’app
+
+1. Scarica o clona la repository. Per utilizzare il laboratorio completo è necessario **Python 3**.
+2. **Su Windows**, apri `sito/Avvia_Laboratorio.cmd` e lascia aperto il prompt durante l’utilizzo. **Da terminale**, in alternativa, esegui `python3 sito/server_atlante.py` dalla cartella principale.
+3. Il server apre l’app nel browser. Per una prima prova scegli **Progetta sul tuo tetto → Prova un esempio offline → Conferma questa copertura**.
+4. Seleziona **Esposizione → Calcola esposizione**, poi **Consigliami un impianto → Mostra proposta** per vedere i pannelli sulla planimetria.
+
+Le mappe online e le richieste a PVGIS richiedono una connessione Internet. Il laboratorio completo utilizza un server Python; la sola pubblicazione delle pagine statiche su GitHub Pages non ne esegue i calcoli.
+
+> [!IMPORTANT]
+> Il modello dell’Edificio F e gli ostacoli sono ricostruzioni a scopo didattico. I valori riportati sono risultati di simulazioni, non misure di un impianto in esercizio. L’app supporta il confronto preliminare delle soluzioni; la progettazione esecutiva richiede il rilievo e la verifica tecnica della copertura.
