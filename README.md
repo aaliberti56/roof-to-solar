@@ -32,9 +32,7 @@ Abbiamo confrontato il tempo al sole, le ombre e la produzione prevista nelle du
 
 **La zona A è risultata più favorevole.** Il 21 dicembre, ogni modulo ha ricevuto in media **6,22 ore di sole diretto in più**. Per il singolo modulo rappresentativo, PVGIS ha stimato in B una produzione inferiore dell’**11,2% rispetto ad A**. La simulazione dei 12 moduli, che considera le ombre sull’intera disposizione, ha stimato una riduzione di circa il **16%**.
 
-![Confronto mensile della produzione simulata nelle zone A e B](geolibre/Edificio_F_Confronto_Ombre_AB_Annuale/Confronto_mensile_AB.png)
 
-*Figura 2 · Il confronto mensile mostra ciò che il totale annuo nasconde: a dicembre, per esempio, la simulazione dei 12 moduli stima circa 420 kWh in A e 191 kWh in B.*
 
 ## 🔵 Secondo risultato · Sud oppure Est–Ovest?
 
