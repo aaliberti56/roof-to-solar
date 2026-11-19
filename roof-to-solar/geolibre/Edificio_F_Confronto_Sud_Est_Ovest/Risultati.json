@@ -1,0 +1,26 @@
+{
+  "Sud": {
+    "energia_DC_ideale_cielo_sereno_kWh": 12084.8,
+    "energia_senza_ombre_kWh": 12085.9,
+    "effetto_ostacoli_kWh": 0.0,
+    "effetto_ombre_reciproche_kWh": 1.13,
+    "irradiazione_media_pannello_kWh_m2": 2237.9
+  },
+  "Est-Ovest": {
+    "energia_DC_ideale_cielo_sereno_kWh": 10407.2,
+    "energia_senza_ombre_kWh": 10415.9,
+    "effetto_ostacoli_kWh": 0.0,
+    "effetto_ombre_reciproche_kWh": 8.75,
+    "irradiazione_media_pannello_kWh_m2": 1927.3
+  },
+  "metadati": {
+    "moduli": 12,
+    "kWp_ipotetici": 5.4,
+    "inclinazione_gradi": 15,
+    "passo_minuti": 30,
+    "spostamento_centro_rispetto_ad_A_m": 0.79,
+    "distanza_centri_EO_m": 1.95,
+    "distanza_centri_NS_m": 3.5,
+    "anno_simulato": 2026
+  }
+}

@@ -1,0 +1,2 @@
+Avvio Windows: fai doppio clic su Avvia_Laboratorio.cmd (richiede Python 3). Si apre lo studio Edificio F. Premi «Progetta sul tuo tetto» per la seconda scheda. Lascia aperto il prompt.
+Apri Apri_Atlante.html per usarlo subito. Per modifiche usa index.html, atlante.css, i file JS e terreno.png nella stessa cartella. Il rilievo funziona offline; lo stradario OpenStreetMap richiede Internet. Usa +/− o la rotella e trascina; Centra edificio ripristina la vista. In modalità disegno il trascinamento è sospeso.

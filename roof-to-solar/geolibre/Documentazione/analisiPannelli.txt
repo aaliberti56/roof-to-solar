@@ -1,0 +1,33 @@
+ siamo partiti dal file ifc dell edificio f all interno di unisa, con 
+l'obiettivo di determinare quale tra due zone scelte casualmente sul tetto dell'edificio 
+è migliore per l'installazione di pannelli solari. Dopo aver scelto queste due zone, 
+abbiamo calcolato una mappa che ci indica quali zone del tetto sono piu colpite dal sole, 
+prendendo come campione un giorno in inverno e un giorno in estate, tramite la funzionalità
+ time in daylight. fatto ciò possiamo notare che la zona A risulta migliore della zona B
+ poichè indica una zona piu colpita dal sole. per avvalorale questa tesi, siamo andati a
+ calcolare le zone di ombra sul tetto dell edificio durante l intero anno, favorendo 
+ancora la zona A. infine, sia attraverso pvgis che attraverso il calcolo delle statistiche
+ zonali, abbiamo verificato che nella zona A è prevista una produzione di energia 
+fotovoltaica maggiore della zona B. Dimostrato che la zona A è migliore della zona B, 
+ci siamo concentrati verso quale direzione inclinare i pannelli in modo da massimizzare 
+la produzione di energia fotovoltaica. dopo delle analisi fatte su pvgis, risulta che 
+conviene inclinarli verso sud.    va bene quindi?
+
+
+
+Riclassifica: ho suddiviso il tetto in classi di esposizione solare, rilevando che 
+circa il 92,6% della copertura presenta un'irradiazione invernale molto elevata rispetto 
+al massimo.
+
+Poligonizza: ho trasformato le zone prioritarie da raster a vettoriale, ottenendo una 
+superficie di circa 6.369 m².
+
+Buffer: ho aggiunto un margine interno di 50 cm, riducendo la superficie disponibile a 
+circa 5.892 m².
+
+Seleziona per posizione: ho verificato quali pannelli rientrassero completamente nella 
+nuova area, passando da 1.567 a 1.421 pannelli.
+
+In conclusione, queste analisi mi hanno permesso di verificare come l'esposizione solare 
+e i vincoli geometrici influenzino la disposizione dei pannelli, utilizzando GeoLibre non 
+c solo per la visualizzazione, ma anche per elaborazioni geospaziali.

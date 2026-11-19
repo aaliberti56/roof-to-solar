@@ -1,0 +1,59 @@
+{
+  "tetto_m2": 7983.0,
+  "superficie_utile_convenzione_m2": 6753.9,
+  "celle_intere_2m": 1448,
+  "area_campionata_m2": 5792,
+  "giorni": [
+    "2026-03-20",
+    "2026-06-21",
+    "2026-09-23",
+    "2026-12-21"
+  ],
+  "intervallo_min": 10,
+  "passi_sole_sopra_orizzonte": 288,
+  "classi_celle": {
+    "Bassa (<85%)": 36,
+    "Intermedia (85–<97%)": 167,
+    "Alta (≥97%)": 1245
+  },
+  "ostacoli": [
+    {
+      "dimensioni_m": [
+        13.0,
+        8.0,
+        4.5
+      ],
+      "centro_EN_m": [
+        15.336715698242188,
+        -41.701080322265625
+      ]
+    },
+    {
+      "dimensioni_m": [
+        10.0,
+        6.0,
+        3.0
+      ],
+      "centro_EN_m": [
+        -24.663284301757812,
+        46.298919677734375
+      ]
+    }
+  ],
+  "scenari": [
+    {
+      "scenario": "A",
+      "moduli": 12,
+      "sole_pct": 100.0,
+      "ore_medie_4_giorni": 48.0,
+      "ore_medie_inverno": 9.0
+    },
+    {
+      "scenario": "B",
+      "moduli": 12,
+      "sole_pct": 75.2,
+      "ore_medie_4_giorni": 36.1,
+      "ore_medie_inverno": 2.78
+    }
+  ]
+}

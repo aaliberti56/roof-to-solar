@@ -1,0 +1,8 @@
+ESERCIZIO FOTOVOLTAICO - EDIFICIO F (scenario didattico)
+GLB: Aggiungi dati > Modello 3D (glTF) > Scegli modello locale.
+Per ogni GLB: posizione singola, lon 14.78894112, lat 40.77453369, scala 1, orientamento 0, stessa altitudine del GLB edificio intero (0 su mappa piana). Le altezze sul tetto sono già nei GLB.
+01 ostacoli; 02 mappa esposizione; 03 confronta A e B accendendoli uno alla volta. Il GeoJSON è per attributi e mappa 2D, può restare nascosto in 3D. La PNG mostra legenda e posizioni A/B.
+Tetto del modello IFC/GLB già creato: base piana, quota relativa del tetto 17.5 m. Sagoma © OpenStreetMap contributors, ODbL, way 79869150.
+Analisi esterna: posizione del Sole con pvlib (NREL SPA, elevazione geometrica). Passi di 10 min, campionati al centro del passo; 4 date rappresentative 2026, fuso Europe/Rome. Raggio 3D dal centro della cella verso il Sole e test di intersezione con due parallelepipedi.
+Celle intere di 2x2 m, margine del bordo 1.5 m, margine degli ostacoli 1 m: ipotesi dimostrative, non prescrizioni. La superficie campionata non coincide con tutta l'area libera.
+A e B: due zone con identici 12 moduli ipotetici 1.10 x 1.75 m a sud, 15 gradi. Selezionate fra i blocchi compatibili con margini e ostacoli, con punteggio diverso. Indicatore al centro di ogni modulo. Non include ombre reciproche, ostacoli reali, orizzonte del DTM o meteo. Percentuale = campioni in sole diretto / campioni con Sole sopra l'orizzonte. Non è produzione in kWh né risultato annuale. DTM e edificio restano nel progetto come contesto.
