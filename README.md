@@ -45,7 +45,7 @@ Una volta scelta la **zona A**, abbiamo cambiato la domanda: a parità di posizi
 
 **Nelle condizioni studiate, il sud offre circa 790 kWh in più all’anno**, pari al **12,2% in più rispetto a Est–Ovest**. Il risultato riguarda l’energia annua delle due configurazioni analizzate a Fisciano; per un altro edificio il confronto va ripetuto con i dati del sito.
 
-![Profilo invernale delle configurazioni Sud ed Est–Ovest](geolibre/Edificio_F_Confronto_Sud_Est_Ovest/Profilo_invernale.png)
+![Profilo invernale delle configurazioni Sud ed Est–Ovest](roof-to-solar/geolibre/Edificio_F_Confronto_Sud_Est_Ovest/Profilo_invernale.png)
 
 *Figura 3 · Il profilo invernale illustra come cambia la distribuzione della produzione durante la giornata. Il grafico proviene da una simulazione giornaliera separata; i totali annui della tabella provengono da PVGIS.*
 
